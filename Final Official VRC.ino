@@ -146,13 +146,13 @@ char cRead_Sensor() {
 void lineFollowing_1() {
   char cSen_Status = 0b00000000;
   cSen_Status = cRead_Sensor();
-  if (cSen_Status == 0b00000110 || cSen_Status == 0b00000100 || cSen_Status == 0b00000010 || cSen_Status == 0b00001111) {
+  if (cSen_Status == 0b00000110 || cSen_Status == 0b00000100 || cSen_Status == 0b00000010) {
     controlBackward(1000, 1000);
   } else if (cSen_Status == 0b00000001 || cSen_Status == 0b00000011 || cSen_Status == 0b00000111) {
     turnRight();
   } else if (cSen_Status == 0b00001000 || cSen_Status == 0b00001100 || cSen_Status == 0b00001110) {
     turnLeft();
-  } else if (cSen_Status == 0b00000000) {
+  } else if (cSen_Status == 0b00000000 || cSen_Status == 0b00001111) {
     controlDC(1000, 1000);
   }
 }
